@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c5b01f04084b743b882e9806142cf6, type: 3}
+  m_Name: GreenBigFont
+  m_EditorClassIdentifier: 
+  _numberSprites:
+  - {fileID: 21300000, guid: 6bbb0f2317e9ed14892514c4c30f7335, type: 3}
+  - {fileID: 21300000, guid: 44a3ac26259ceea4f8f2e3ef333fd1f5, type: 3}
+  - {fileID: 21300000, guid: 5915f5db8c6f9b64987fb1f7fb94764b, type: 3}
+  - {fileID: 21300000, guid: e0b26d01daf8384458e32f9f2770e4fe, type: 3}
+  - {fileID: 21300000, guid: c5938701c3c566242a21c108a188b2ae, type: 3}
+  - {fileID: 21300000, guid: 67f5d0c0de9173848bdccdd5b28a7747, type: 3}
+  - {fileID: 21300000, guid: 90f7b992cab9eed48909055c595847cd, type: 3}
+  - {fileID: 21300000, guid: aeb97f38edfcdaa4587dcdc1174e650c, type: 3}
+  - {fileID: 21300000, guid: f3d1cd328a3d6964595720095695fb7f, type: 3}
+  - {fileID: 21300000, guid: 8b19c43d064dc4c4d81a053e1773a78e, type: 3}
