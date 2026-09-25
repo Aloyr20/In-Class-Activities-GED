@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Chapter.Singleton;
 public class LevelStatus : MonoBehaviour
 {
     bool levelCompleted = false;
@@ -20,16 +21,18 @@ public class LevelStatus : MonoBehaviour
     {
         if (levelCompleted)
         {
-            FindObjectOfType<ScoreCounter>().GetScore();
+            ScoreCounter.Instance.GetScore();
             DelayedLevelComplete();
         }
         if (levelFailed)
         {
             SceneManager.LoadScene(_levelFailedScene);
+            ScoreCounter.Instance.ResetScore();
         }
         if (gameOver)
         {
             SceneManager.LoadScene(_gameOverScene);
+            ScoreCounter.Instance.ResetScore();
         }
     }
 

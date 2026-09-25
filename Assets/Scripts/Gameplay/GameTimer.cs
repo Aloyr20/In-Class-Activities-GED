@@ -1,6 +1,7 @@
 // Modified Timer.cs
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+using Chapter.Singleton;
+
 
 public class GameTimer : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class GameTimer : MonoBehaviour
             int scoreToAdd = Mathf.FloorToInt(currentTime) * 1000;
 
             // Add score first
-            FindObjectOfType<ScoreCounter>().AddScore(scoreToAdd);
+            ScoreCounter.Instance.AddScore(scoreToAdd);
             
             FindObjectOfType<LevelStatus>().SetLevelComplete(true);
         }

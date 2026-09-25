@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Chapter.Singleton;
 using UnityEngine.SceneManagement;
 
 public class MarioController : MonoBehaviour
@@ -168,6 +169,7 @@ public class MarioController : MonoBehaviour
         else
         {
             FindObjectOfType<AudioManager>().Play("LifeLost");
+            ScoreCounter.Instance.ResetScore();
         }
 
         isDead = true;
@@ -215,7 +217,7 @@ public class MarioController : MonoBehaviour
 
                 goomba.Squash();
 
-                FindObjectOfType<ScoreCounter>().AddScore(1000);
+                ScoreCounter.Instance.AddScore(1000);
 
                 FindObjectOfType<AudioManager>().Play("Bump");
             }
@@ -252,7 +254,7 @@ public class MarioController : MonoBehaviour
 
                 collision.gameObject.GetComponent<BoxCollider2D>().size = new Vector2(1, 1);
 
-                FindObjectOfType<ScoreCounter>().AddScore(1000);
+                ScoreCounter.Instance.AddScore(1000);
 
                 FindObjectOfType<AudioManager>().Play("Bump");
             }
@@ -276,7 +278,7 @@ public class MarioController : MonoBehaviour
 
                 collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0,collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity.y);
 
-                FindObjectOfType<ScoreCounter>().AddScore(100);
+                ScoreCounter.Instance.AddScore(100);
             }
             else
             {
@@ -314,7 +316,7 @@ public class MarioController : MonoBehaviour
             {
                 Destroy(collision.gameObject);
 
-                FindObjectOfType<ScoreCounter>().AddScore(500);
+                ScoreCounter.Instance.AddScore(500);
             }
         }
 

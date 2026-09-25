@@ -1,3 +1,4 @@
+using Chapter.Singleton;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class BlockHit : MonoBehaviour
 {
     [SerializeField] GameObject blockItem;
+    [SerializeField] PowerUpsSpawner powerUpsSpawner;
     [SerializeField] Sprite usedBlock;
     [SerializeField] Sprite unusedBlock;
 
@@ -40,18 +42,23 @@ public class BlockHit : MonoBehaviour
         if (blockItem.CompareTag("Coin"))
         {
             item = Instantiate(blockItem, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+
             Destroy(item, 0.5f);
+
             item.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5, ForceMode2D.Impulse);
 
             FindObjectOfType<CoinCounter>().AddCoin(1);
-            FindObjectOfType<ScoreCounter>().AddScore(100);
+            ScoreCounter.Instance.AddScore(100);
 
             FindObjectOfType<AudioManager>().Play("Coin");
         }
         else if (blockItem.CompareTag("Powerup"))
         {
-            item = Instantiate(blockItem, transform.position + new Vector3(0, 1.01f, 0), Quaternion.identity);
-            item.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+            Vector3 spawnPosition = transform.position + new Vector3(0, 1.01f, 0);
+
+            PowerUps powerUp = powerUpsSpawner.SpawnPowerUp();
+
+            powerUp.Spawn(spawnPosition);
 
             FindObjectOfType<AudioManager>().Play("MushroomSpawn");
         }

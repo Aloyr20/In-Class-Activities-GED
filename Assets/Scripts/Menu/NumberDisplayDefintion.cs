@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteAlways]
 public class NumberDisplayDefinition : MonoBehaviour
 {
     public string _numericalValue = "0001";
@@ -91,6 +90,7 @@ public class NumberDisplayDefinition : MonoBehaviour
 
     private void Update()
     {
+
         if (!_converted && _enableConversion)
         {
             ConvertToSprites();
