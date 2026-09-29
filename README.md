@@ -6,7 +6,7 @@ GDW Mario Game Gameplay Loop:
 
 The gameplay loops follows how the typical old school Mario games do. The player spawns in the level after clicking the game into the game from the main menu. The player controls Mario and is able to run and jump around the level. The player must avoid and kill enemies like the pirrana plants, goombas, koopas while collecting coins and powerups like the fire flower. The goal of the player is to reach the end of the level and hit the spinning block to win. The player dies after Mario runs out of his 5 lives and they must restart again.
 
-UML Diagram of Audio Manager & Singleton Implementation
+Flow Chart of Audio Manager & Singleton Implementation
 <img width="959" height="810" alt="{5B42E6B8-AFC9-406E-A74A-94513118DBC5}" src="https://github.com/user-attachments/assets/d578ad5b-d568-46c6-b686-59c5f0df4a98" />
 
 What element of your game adopts the chosen pattern?
