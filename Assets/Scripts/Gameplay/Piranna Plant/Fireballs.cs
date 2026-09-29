@@ -32,21 +32,6 @@ public class Fireballs : MonoBehaviour
     {
         if (player == null)
             return;
-
-        Vector2 direction = (player.position - transform.position).normalized;
-
-        if (rb2d != null)
-        {
-            // Smoothly steer the velocity toward the player
-            Vector2 currentDir = rb2d.linearVelocity.normalized;
-            Vector2 newDir = Vector3.RotateTowards(currentDir, direction, turnSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f);
-            rb2d.linearVelocity = newDir * speed;
-        }
-        else
-        {
-            // Fallback: move directly toward the player
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)

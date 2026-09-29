@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -247,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuType: 1
-  _menuMusic: {fileID: 8300000, guid: 59d92ac12378f2040bef56af50d997c9, type: 3}
+  _menuMusic: gameSelection
   _continuePrevMusic: 0
   _menuButtonObjects:
   - {fileID: 1117490129}
@@ -423,8 +420,8 @@ MonoBehaviour:
   _unselectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selected: 0
-  _swapToSFX: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
-  _confirmSFX: {fileID: 8300000, guid: 617115aa0140f104ab4b9ca578aeb3a3, type: 3}
+  _swapToSFX: 
+  _confirmSFX: 
   _confirmTime: 0.7
 --- !u!114 &112813498
 MonoBehaviour:
@@ -484,7 +481,7 @@ MonoBehaviour:
         m_CallState: 2
 --- !u!95 &112813499
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -498,6 +495,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -902,12 +900,12 @@ MonoBehaviour:
   _unselectedTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _selectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selected: 1
-  _swapToSFX: {fileID: 0}
-  _confirmSFX: {fileID: 8300000, guid: 617115aa0140f104ab4b9ca578aeb3a3, type: 3}
+  _swapToSFX: 
+  _confirmSFX: 
   _confirmTime: 0.7
 --- !u!95 &427322611
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -921,6 +919,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1265,7 +1264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeMenu: {fileID: 1409227342}
-  _backgroundAudio: {fileID: 1309965533}
   _increaseVert: 11010000770000006900000074000000
   _decreaseVert: 12010000730000006b00000067000000
   _increaseHoriz: 13010000640000006a00000068000000
@@ -1510,8 +1508,8 @@ MonoBehaviour:
   _unselectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selected: 0
-  _swapToSFX: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
-  _confirmSFX: {fileID: 8300000, guid: 31419511893a9934baa4a74fc2852562, type: 3}
+  _swapToSFX: 
+  _confirmSFX: 
   _confirmTime: 0.6
 --- !u!114 &667125098
 MonoBehaviour:
@@ -1559,7 +1557,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &667125099
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1573,6 +1571,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1630,7 +1629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuType: 0
-  _menuMusic: {fileID: 8300000, guid: 0c8fbad08fc324941b70c946d0b3b1f6, type: 3}
+  _menuMusic: MarioBros3MenuMusic
   _continuePrevMusic: 0
   _menuButtonObjects:
   - {fileID: 427322605}
@@ -1784,6 +1783,131 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901688033}
   m_CullTransparentMesh: 1
+--- !u!1 &912375958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912375960}
+  - component: {fileID: 912375959}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &912375959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912375958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb25ebfc8c0462418f87eff088956d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: 2cbf1a7842e149d4ab36c54abb6dbfe8, type: 3}
+    name: Music
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 9a60a1de24c3ca541bee28b76ab03981, type: 3}
+    name: GameOver
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 65f25be5b7061574f8da7ff25a1f9cc2, type: 3}
+    name: Jump
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 3fff1ea2a05946f49b42e44d17c955ec, type: 3}
+    name: Coin
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d0da4f9de82b6b34b973724e79c3ae2c, type: 3}
+    name: LevelClear
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 3597be5646c4431468ce5151f20ccd98, type: 3}
+    name: MushroomSpawn
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: cd1f719f5462bec41ba1d30bcba48aad, type: 3}
+    name: Bump
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 85a19d5565965b44681e3dc1eaf811fa, type: 3}
+    name: PowerUp
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 7c2828593f2bc8b4c995bc0d5dd4097d, type: 3}
+    name: PowerDown
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e68f87a1939a6354d822d1f6c40472eb, type: 3}
+    name: LifeLost
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: aaf79ca1b0e717d4da25ab0fd475a598, type: 3}
+    name: Kick
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
+    name: buttonSwap
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 617115aa0140f104ab4b9ca578aeb3a3, type: 3}
+    name: confirm
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e6fcd784136532e488656694c62e0ccb, type: 3}
+    name: MarioBros3TitleMusic
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 0c8fbad08fc324941b70c946d0b3b1f6, type: 3}
+    name: MarioBros3MenuMusic
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 59d92ac12378f2040bef56af50d997c9, type: 3}
+    name: gameSelection
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+--- !u!4 &912375960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912375958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 485.5719, y: 294.80615, z: -3.07875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &930387354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuType: 1
-  _menuMusic: {fileID: 0}
+  _menuMusic: MarioBros3MenuMusic
   _continuePrevMusic: 1
   _menuButtonObjects:
   - {fileID: 112813493}
@@ -2306,12 +2430,12 @@ MonoBehaviour:
   _unselectedTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _selectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selected: 0
-  _swapToSFX: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
-  _confirmSFX: {fileID: 8300000, guid: 31419511893a9934baa4a74fc2852562, type: 3}
+  _swapToSFX: 
+  _confirmSFX: 
   _confirmTime: 0.6
 --- !u!95 &1104690651
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2325,6 +2449,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -2507,12 +2632,12 @@ MonoBehaviour:
   _unselectedTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _selectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selected: 1
-  _swapToSFX: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
-  _confirmSFX: {fileID: 8300000, guid: 9a60a1de24c3ca541bee28b76ab03981, type: 3}
+  _swapToSFX: 
+  _confirmSFX: 
   _confirmTime: 1.6
 --- !u!95 &1117490135
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2526,6 +2651,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -2843,12 +2969,12 @@ MonoBehaviour:
   _unselectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selected: 1
-  _swapToSFX: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
-  _confirmSFX: {fileID: 8300000, guid: 617115aa0140f104ab4b9ca578aeb3a3, type: 3}
+  _swapToSFX: buttonSwap
+  _confirmSFX: confirm
   _confirmTime: 0.7
 --- !u!95 &1204516842
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2862,6 +2988,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -3018,134 +3145,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257012297}
   m_CullTransparentMesh: 1
---- !u!1 &1309965532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1309965534}
-  - component: {fileID: 1309965533}
-  m_Layer: 0
-  m_Name: Background Audio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1309965533
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309965532}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.105
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1309965534
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309965532}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 626.3664, y: 281.6594, z: 2.693949}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1399141827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,8 +3241,8 @@ MonoBehaviour:
   _unselectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selected: 0
-  _swapToSFX: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
-  _confirmSFX: {fileID: 8300000, guid: 31419511893a9934baa4a74fc2852562, type: 3}
+  _swapToSFX: 
+  _confirmSFX: 
   _confirmTime: 0.6
 --- !u!114 &1399141832
 MonoBehaviour:
@@ -3291,7 +3290,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &1399141833
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3305,6 +3304,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -3364,7 +3364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuType: 0
-  _menuMusic: {fileID: 8300000, guid: e6fcd784136532e488656694c62e0ccb, type: 3}
+  _menuMusic: MarioBros3TitleMusic
   _continuePrevMusic: 0
   _menuButtonObjects:
   - {fileID: 1204516836}
@@ -3574,8 +3574,8 @@ MonoBehaviour:
   _unselectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selectedTint: {r: 1, g: 0, b: 0, a: 1}
   _selected: 0
-  _swapToSFX: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
-  _confirmSFX: {fileID: 8300000, guid: bb297210bf064c0459a2fafc495a9be3, type: 3}
+  _swapToSFX: 
+  _confirmSFX: 
   _confirmTime: 0.8
 --- !u!114 &1637258956
 MonoBehaviour:
@@ -3896,12 +3896,12 @@ MonoBehaviour:
   _unselectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selectedTint: {r: 1, g: 1, b: 1, a: 1}
   _selected: 0
-  _swapToSFX: {fileID: 8300000, guid: fcfff5d3eebd82847a0353e4d415b800, type: 3}
-  _confirmSFX: {fileID: 8300000, guid: 31419511893a9934baa4a74fc2852562, type: 3}
+  _swapToSFX: buttonSwap
+  _confirmSFX: confirm
   _confirmTime: 0.6
 --- !u!95 &1774582748
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3915,6 +3915,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -4306,5 +4307,5 @@ SceneRoots:
   - {fileID: 1123451714}
   - {fileID: 979853137}
   - {fileID: 635209214}
-  - {fileID: 1309965534}
   - {fileID: 516740362}
+  - {fileID: 912375960}

@@ -15,8 +15,8 @@ public class ButtonDefinition : MonoBehaviour
     private Image _image;
     private Animator _animator;
 
-    public AudioClip _swapToSFX;
-    public AudioClip _confirmSFX;
+    public string _swapToSFX;
+    public string _confirmSFX;
     public float _confirmTime;
 
     private bool _disableControls = false;
@@ -46,9 +46,9 @@ public class ButtonDefinition : MonoBehaviour
     {
         _selected = true;
 
-        if (_swapToSFX != null)
+        if (!string.IsNullOrEmpty(_swapToSFX))
         {
-            AudioSource.PlayClipAtPoint(_swapToSFX, Vector3.zero);
+            AudioManager.Instance.Play(_swapToSFX);
         }
 
         _image.color = _selectedTint;
@@ -87,9 +87,9 @@ public class ButtonDefinition : MonoBehaviour
 
             _button.onClick.Invoke();
 
-            if (_confirmSFX != null)
+            if (!string.IsNullOrEmpty(_confirmSFX))
             {
-                AudioSource.PlayClipAtPoint(_confirmSFX, Vector3.zero);
+                AudioManager.Instance.Play(_confirmSFX);
             }
 
             yield return new WaitForSeconds(_confirmTime);

@@ -46,8 +46,8 @@ public class LevelCompleteBox : MonoBehaviour
             timer.CompleteLevel();
         }
 
-        FindObjectOfType<AudioManager>().Stop("Music");
-        FindObjectOfType<AudioManager>().Play("LevelClear");
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlayMusic("LevelClear");
         itemCollected = true;
     }
 }

@@ -50,7 +50,7 @@ public class BlockHit : MonoBehaviour
             FindObjectOfType<CoinCounter>().AddCoin(1);
             ScoreCounter.Instance.AddScore(100);
 
-            FindObjectOfType<AudioManager>().Play("Coin");
+            AudioManager.Instance.Play("Coin");
         }
         else if (blockItem.CompareTag("Powerup"))
         {
@@ -60,7 +60,7 @@ public class BlockHit : MonoBehaviour
 
             powerUp.Spawn(spawnPosition);
 
-            FindObjectOfType<AudioManager>().Play("MushroomSpawn");
+            AudioManager.Instance.Play("MushroomSpawn");
         }
 
         blockHitActionPerformed = true;
@@ -73,7 +73,7 @@ public class BlockHit : MonoBehaviour
             if (collision.contacts[0].normal.y > 0.5f)
             {
                 blockHit = true;
-                FindObjectOfType<AudioManager>().Play("Bump");
+                AudioManager.Instance.Play("Bump");
             }
         }
     }

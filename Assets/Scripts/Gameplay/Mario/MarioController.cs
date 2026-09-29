@@ -39,7 +39,7 @@ public class MarioController : MonoBehaviour
         trans = GetComponent<Transform>();
         body = GetComponent<Rigidbody2D>();
 
-        FindObjectOfType<AudioManager>().Play("Music");
+        AudioManager.Instance.PlayMusic("Music");
     }
 
     // Update is called once per frame
@@ -128,7 +128,7 @@ public class MarioController : MonoBehaviour
         body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         isGrounded = false;
 
-        FindObjectOfType<AudioManager>().Play("Jump");
+        AudioManager.Instance.Play("Jump");
     }
 
     public void EnableFirePower()
@@ -160,15 +160,15 @@ public class MarioController : MonoBehaviour
     {
         FindObjectOfType<Lives>().LoseLife();
 
-        FindObjectOfType<AudioManager>().Stop("Music");
+        AudioManager.Instance.StopMusic();
 
         if (FindObjectOfType<Lives>().GetCurrentLives() < 1)
         {
-            FindObjectOfType<AudioManager>().Play("GameOver");
+            AudioManager.Instance.Play("GameOver");
         }
         else
         {
-            FindObjectOfType<AudioManager>().Play("LifeLost");
+            AudioManager.Instance.PlayMusic("LifeLost");
             ScoreCounter.Instance.ResetScore();
         }
 
@@ -219,7 +219,7 @@ public class MarioController : MonoBehaviour
 
                 ScoreCounter.Instance.AddScore(1000);
 
-                FindObjectOfType<AudioManager>().Play("Bump");
+                AudioManager.Instance.Play("Bump");
             }
             else
             {
@@ -227,11 +227,13 @@ public class MarioController : MonoBehaviour
                 {
                     if (isBig)
                     {
+                        hasFirePower = false;
+
                         GetComponent<BoxCollider2D>().size = smolMarioPrefab.GetComponent<BoxCollider2D>().size;
 
                         isBig = false;
 
-                        FindObjectOfType<AudioManager>().Play("PowerDown");
+                        AudioManager.Instance.Play("PowerDown");
                     }
                     else
                     {
@@ -256,7 +258,7 @@ public class MarioController : MonoBehaviour
 
                 ScoreCounter.Instance.AddScore(1000);
 
-                FindObjectOfType<AudioManager>().Play("Bump");
+                AudioManager.Instance.Play("Bump");
             }
             else if (koopa.IsSquashed && !koopa.IsKicked)
             {
@@ -286,11 +288,13 @@ public class MarioController : MonoBehaviour
                 {
                     if (isBig)
                     {
+                        hasFirePower = false;
+
                         GetComponent<BoxCollider2D>().size = smolMarioPrefab.GetComponent<BoxCollider2D>().size;
 
                         isBig = false;
 
-                        FindObjectOfType<AudioManager>().Play("PowerDown");
+                        AudioManager.Instance.Play("PowerDown");
                     }
                     else
                     {
@@ -302,7 +306,7 @@ public class MarioController : MonoBehaviour
 
         if (collision.gameObject.name.Contains("Mushroom"))
         {
-            FindObjectOfType<AudioManager>().Play("PowerUp");
+            AudioManager.Instance.Play("PowerUp");
 
             if (!isBig)
             {
@@ -334,6 +338,8 @@ public class MarioController : MonoBehaviour
         {
             if (isBig)
             {
+                hasFirePower = false;
+
                 GetComponent<BoxCollider2D>().size = smolMarioPrefab.GetComponent<BoxCollider2D>().size;
 
                 isBig = false;

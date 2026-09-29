@@ -12,7 +12,7 @@ public enum MenuType
 public class MenuDefinition : MonoBehaviour
 {
     public MenuType _menuType = MenuType.HORIZONTAL;
-    public AudioClip _menuMusic;
+    public string _menuMusic;
     public bool _continuePrevMusic = false;
     public List<GameObject> _menuButtonObjects = new List<GameObject>();
 

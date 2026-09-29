@@ -6,14 +6,12 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     public GameObject _activeMenu;
-    public AudioSource _backgroundAudio;
 
     public List<KeyCode> _increaseVert;
     public List<KeyCode> _decreaseVert;
     public List<KeyCode> _increaseHoriz;
     public List<KeyCode> _decreaseHoriz;
     public List<KeyCode> _confirmButtons;
-
 
     private MenuDefinition _activeMenuDefinition;
     private int _activeButton = 0;
@@ -100,15 +98,14 @@ public class MenuController : MonoBehaviour
             // Only update music if we are NOT continuing previous music
             if (!_activeMenuDefinition._continuePrevMusic)
             {
-                _backgroundAudio.clip = _activeMenuDefinition._menuMusic;
-                _backgroundAudio.Play();
+                AudioManager.Instance.PlayMusic(_activeMenuDefinition._menuMusic);
             }
             // If _continuePrevMusic is true, do nothing (keep previous music)
         }
         else
         {
             // If there's no valid menu, stop the music
-            _backgroundAudio.Stop();
+            AudioManager.Instance.StopMusic();
         }
     }
 
@@ -121,7 +118,5 @@ public class MenuController : MonoBehaviour
         UpdateActiveMenuDefinition();
 
         _activeButton = 0;
-
-
     }
 }

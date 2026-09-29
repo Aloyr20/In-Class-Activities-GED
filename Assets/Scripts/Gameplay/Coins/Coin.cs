@@ -7,9 +7,10 @@ public class Coin : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(gameObject);
         FindObjectOfType<CoinCounter>().AddCoin(1);
         ScoreCounter.Instance.AddScore(100);
-        FindObjectOfType<AudioManager>().Play("Coin");
+        AudioManager.Instance.Play("Coin");
         Destroy(gameObject);
     }
 }

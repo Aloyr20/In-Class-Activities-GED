@@ -56,7 +56,7 @@ public class Koopa : Enemy
         isKicked = true;
         isMoving = false;
 
-        FindObjectOfType<AudioManager>().Play("Kick");
+        AudioManager.Instance.Play("Kick");
     }
 
     public void StopKick()
@@ -103,7 +103,7 @@ public class Koopa : Enemy
 
                 Destroy(collision.gameObject, 2);
 
-                FindObjectOfType<AudioManager>().Play("Bump");
+                AudioManager.Instance.Play("Bump");
 
                 ApplyKickForce(new Vector2(-collision.contacts[0].normal.normalized.x,0));
             }
