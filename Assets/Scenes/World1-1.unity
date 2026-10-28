@@ -654,6 +654,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8216456476352696841, guid: 1f4f6759e23c26d4281df1f6f83c213d, type: 3}
   m_PrefabInstance: {fileID: 246993494}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &322467912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322467914}
+  - component: {fileID: 322467913}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &322467913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322467912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a933ca25f42fe4dbb9fcee07246d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PluginTester
+--- !u!4 &322467914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322467912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.82801, y: 0.14475, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &351813227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4716,3 +4760,4 @@ SceneRoots:
   - {fileID: 1591028946}
   - {fileID: 1227372346}
   - {fileID: 1201817978}
+  - {fileID: 322467914}
