@@ -2589,7 +2589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1201817978
 Transform:
   m_ObjectHideFlags: 0
@@ -2715,12 +2715,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1227372346}
   m_Layer: 0
-  m_Name: Goomba
+  m_Name: OldGoombaSpawning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1227372346
 Transform:
   m_ObjectHideFlags: 0
@@ -3721,6 +3721,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4071782529102929680, guid: 530212c70c330044b84c00497affb0bc, type: 3}
   m_PrefabInstance: {fileID: 1779300741}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1842675053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842675054}
+  - component: {fileID: 1842675056}
+  - component: {fileID: 1842675055}
+  m_Layer: 0
+  m_Name: GoombaSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1842675054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842675053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24, y: -3.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1842675055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842675053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098e5656c75ec6143bab3494e438c6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GoombaSpawner
+  enemyPrefab: {fileID: 7670790492761009464, guid: 357d1d77472c0074d875071860db58e6, type: 3}
+  enemyPool: {fileID: 1842675056}
+  usePooling: 1
+  spawnOnInput: 1
+  spawnInterval: 0.1
+  spawnAmount: 10
+  enemyLifetime: 3
+--- !u!114 &1842675056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842675053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3686807bbac7a89448a8ae34f2cbb0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GoombaPool
+  enemyPrefab: {fileID: 7670790492761009464, guid: 357d1d77472c0074d875071860db58e6, type: 3}
+  maxPoolSize: 400
 --- !u!1 &1853725795 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5870765827941007519, guid: d53d5ce2c7253e5428b31aea2109d38c, type: 3}
@@ -4536,6 +4602,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3448573331642845294, guid: 671eb4a81f231d94fae59bff2ebf763c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448573331642845294, guid: 671eb4a81f231d94fae59bff2ebf763c, type: 3}
       propertyPath: m_TagString
       value: PirranaPlant
       objectReference: {fileID: 0}
@@ -4761,3 +4831,4 @@ SceneRoots:
   - {fileID: 1227372346}
   - {fileID: 1201817978}
   - {fileID: 322467914}
+  - {fileID: 1842675054}

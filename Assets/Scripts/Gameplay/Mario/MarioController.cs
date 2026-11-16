@@ -237,7 +237,7 @@ public class MarioController : MonoBehaviour
                     }
                     else
                     {
-                        Destroy(collision.gameObject);
+                        goomba.Despawn();
                         StartDeath();
                     }
                 }

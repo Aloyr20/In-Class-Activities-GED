@@ -101,7 +101,7 @@ public class Koopa : Enemy
 
                 collision.gameObject.GetComponent<Collider2D>().enabled = false;
 
-                Destroy(collision.gameObject, 2);
+                collision.gameObject.GetComponent<Goomba>().SetLifetime(2);
 
                 AudioManager.Instance.Play("Bump");
 

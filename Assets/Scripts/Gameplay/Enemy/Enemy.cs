@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,43 +6,106 @@ public class Enemy : MonoBehaviour
 
     private bool isSquashed;
     private bool movingLeft;
+    private GoombaPool enemyPool;
+    private float lifetime;
+    private Rigidbody2D body;
+    private BoxCollider2D enemyCollider;
+    private Vector2 colliderSize;
+    private float gravityScale;
 
     public bool IsSquashed
     {
-        get 
-        { 
+        get
+        {
             return isSquashed;
         }
 
-        protected set 
-        { 
-            isSquashed = value; 
+        protected set
+        {
+            isSquashed = value;
         }
-
     }
 
     protected float Speed
     {
-        get 
-        { 
-            return speed; 
+        get
+        {
+            return speed;
         }
     }
 
     protected bool MovingLeft
     {
-        get 
-        { 
+        get
+        {
             return movingLeft;
         }
-        set 
-        { 
+
+        set
+        {
             movingLeft = value;
         }
     }
 
+    protected virtual void Awake()
+    {
+        body = GetComponent<Rigidbody2D>();
+        enemyCollider = GetComponent<BoxCollider2D>();
+        colliderSize = enemyCollider.size;
+        gravityScale = body.gravityScale;
+    }
+
+    protected virtual void OnEnable()
+    {
+        IsSquashed = false;
+        MovingLeft = false;
+        lifetime = 0;
+        body.linearVelocity = Vector2.zero;
+        body.angularVelocity = 0;
+        body.gravityScale = gravityScale;
+        enemyCollider.enabled = true;
+        enemyCollider.size = colliderSize;
+    }
+
+    public void SetPool(GoombaPool pool)
+    {
+        enemyPool = pool;
+    }
+
+    public void SetLifetime(float time)
+    {
+        lifetime = time;
+    }
+
+    public void Despawn()
+    {
+        UnityEngine.Profiling.Profiler.BeginSample("Enemy.Despawn");
+
+        if (enemyPool != null)
+        {
+            enemyPool.ReturnToPool(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        UnityEngine.Profiling.Profiler.EndSample();
+    }
+
     protected virtual void Update()
     {
+        if (lifetime > 0)
+        {
+            lifetime -= Time.deltaTime;
+
+            if (lifetime <= 0)
+            {
+                Despawn();
+                return;
+            }
+        }
+
         if (!IsSquashed)
         {
             Move();
@@ -73,7 +134,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Fireball"))
         {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            Despawn();
         }
     }
 }
