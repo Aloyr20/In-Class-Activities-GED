@@ -6,13 +6,20 @@ public class Goomba : Enemy
 
     private float flipTimer;
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        flipTimer = 0;
+        GetComponent<Animator>().SetBool("Squashed", false);
+    }
+
     protected override void Update()
     {
         base.Update();
 
-        if (IsSquashed)
+        if(!gameObject.activeSelf)
         {
-            Destroy(gameObject, deathTimer);
+            return;
         }
 
         if (flipTimer <= Time.realtimeSinceStartup)
@@ -24,7 +31,14 @@ public class Goomba : Enemy
 
     public override void Squash()
     {
+        if(IsSquashed)
+        {
+            return;
+        }
+
         base.Squash();
+        GetComponent<Animator>().SetBool("Squashed", true);
+        SetLifetime(deathTimer);
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)

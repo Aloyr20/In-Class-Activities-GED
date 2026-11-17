@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 
     private bool isSquashed;
     private bool movingLeft;
-    private GoombaPool enemyPool;
+    private EnemyPool enemyPool;
     private float lifetime;
     private Rigidbody2D body;
     private BoxCollider2D enemyCollider;
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
         enemyCollider.size = colliderSize;
     }
 
-    public void SetPool(GoombaPool pool)
+    public void SetPool(EnemyPool pool)
     {
         enemyPool = pool;
     }

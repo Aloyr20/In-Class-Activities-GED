@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoombaPool : MonoBehaviour
+public class EnemyPool : MonoBehaviour
 {
-    [SerializeField] private Goomba enemyPrefab;
-    [SerializeField] private int maxPoolSize = 400;
+    [SerializeField] private int maxPoolSize = 64;
 
-    private List<Goomba> enemies = new List<Goomba>();
+    private List<Enemy> enemies = new List<Enemy>();
 
-    public void CreatePool()
+    public void CreatePool(Enemy enemyPrefab)
     {
         if (enemies.Count > 0)
         {
@@ -17,14 +16,14 @@ public class GoombaPool : MonoBehaviour
 
         for (int i = 0; i < maxPoolSize; i++)
         {
-            Goomba enemy = Instantiate(enemyPrefab, transform);
+            Enemy enemy = Instantiate(enemyPrefab, transform);
             enemy.SetPool(this);
             enemy.gameObject.SetActive(false);
             enemies.Add(enemy);
         }
     }
 
-    public Goomba GetEnemy(Vector3 position, float lifetime)
+    public Enemy GetEnemy(Vector3 position, float lifetime)
     {
         for (int i = 0; i < enemies.Count; i++)
         {

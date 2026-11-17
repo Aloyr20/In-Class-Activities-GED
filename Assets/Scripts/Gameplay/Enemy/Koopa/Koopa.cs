@@ -9,6 +9,7 @@ public class Koopa : Enemy
 
     private bool isKicked;
     private bool isMoving = true;
+    private Animator koopaAnimator;
 
     public bool IsKicked
     {
@@ -21,10 +22,26 @@ public class Koopa : Enemy
 
     public bool IsMoving
     {
-        get 
-        { 
-            return isMoving; 
+        get
+        {
+            return isMoving;
         }
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        koopaAnimator = GetComponent<Animator>();
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        isKicked = false;
+        isMoving = true;
+        koopaAnimator.SetBool("isSquashed", false);
+        koopaAnimator.SetBool("isKicked", false);
+        koopaAnimator.Play("Walk", 0, 0);
     }
 
     protected override void Move()
@@ -45,8 +62,14 @@ public class Koopa : Enemy
 
     public override void Squash()
     {
+        if (IsSquashed)
+        {
+            return;
+        }
+
         base.Squash();
         isMoving = false;
+        koopaAnimator.SetBool("isSquashed", true);
     }
 
     public void ApplyKickForce(Vector2 direction)
@@ -55,6 +78,7 @@ public class Koopa : Enemy
 
         isKicked = true;
         isMoving = false;
+        koopaAnimator.SetBool("isKicked", true);
 
         AudioManager.Instance.Play("Kick");
     }
@@ -63,6 +87,7 @@ public class Koopa : Enemy
     {
         isKicked = false;
         isMoving = false;
+        koopaAnimator.SetBool("isKicked", false);
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
