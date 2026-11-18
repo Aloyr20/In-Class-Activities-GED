@@ -2,17 +2,23 @@
 
 Augustine Di Bernardo 100982645
 
+## Game Build + Editor Info
+
+The Unity Editor version which was used to complete this project was Unity 6000.3.11f1. The scene that was edited for this lab was World1-1.
+
+Release: https://github.com/Aloyr20/In-Class-Activities-GED/releases/tag/Build_LAB_%232
+
 ## GDW Mario Game Gameplay Loop:
 
 The gameplay loops follows how the typical old school Mario games do. The player spawns in the level after clicking the game into the game from the main menu. The player controls Mario and is able to run and jump around the level. The player must avoid and kill enemies like the pirrana plants, goombas, koopas while collecting coins and powerups like the fire flower. The goal of the player is to reach the end of the level and hit the spinning block to win. The player dies after Mario runs out of his 5 lives and they must restart again.
 
 ## What I created:
 
-For the Lab Assignment, I built off my existing Goomba Spawning and Pooling System to support Koopas. Afterwards, I added the factory design pattern to the enemy spawning system and I placed six enemy spawners around my World 1-1 level. Each spawner randomly chooses either a Goomba or a Koopa using UnityEngine.Random.Range. GoombaFactory and KoopaFactory both inherit from EnemyFactory and supply the type of enemy they are. Goombas and Koopas each have separate pools. When an enemy's lifetime ends, they are disabled and kept to be reused and the state they were previously in is reset.
+For the Lab Assignment, I built off my existing Goomba Spawning and Pooling System to support Koopas. Afterwards, I added the factory design pattern to the enemy spawning system and I placed six enemy spawners around my World 1-1 level. Each spawner randomly chooses either a Goomba or a Koopa using UnityEngine.Random.Range. GoombaFactory and KoopaFactory both inherit from EnemyFactory and supply the type of enemy they are. Goombas and Koopas each have separate pools. When an enemies lifetime ends, they are disabled and kept to be reused and the state they were previously in is reset.
 
 ## How I Tested the Spawn System:
 
-I tested the spawn system by comparing the system with pooling on only verse the spawn system with pooling and the factory design pattern. With Pooling Only mode, the spawners would request the enemys directly from the pool itself. In comparison, the spawners when Factory With Pooling mode was selected would pass the request through the factory before accessing the pools. When testing both versions, I had six spawners active and each spawner would spawn one of either Goomba or Koopa every 5 seconds, with each having a lifetime of 30 seconds. Both Goomba and Koopa had a pool limit of 64. I had a toggle for repeatable test which was enabled that made it use a consistent seed of 1234 to keep the random enemy spawning consistent between each test. For each test I waited 30 seconds before recording the profiler to keep the test accurate rather then starting the recording from the start of gameplay in case a lag spike happened at the start of the game unrelated to the spawn itself. The frame I selected for both tests contained 6 spawning calls as each spawn happens at the same time.
+I tested the spawn system by comparing the system with pooling on only versus the spawn system with pooling and the factory design pattern. With Pooling Only mode, the spawners would request the enemies directly from the pool itself. In comparison, the spawners when Factory With Pooling mode was selected would pass the request through the factory before accessing the pools. When testing both versions, I had six spawners active and each spawner would spawn one of either Goomba or Koopa every 5 seconds, with each having a lifetime of 30 seconds. Both Goomba and Koopa had a pool limit of 64. I had a toggle for repeatable test which was enabled that made it use a consistent seed of 1234 to keep the random enemy spawning consistent between each test. For each test I waited 30 seconds before recording the profiler to keep the test accurate rather then starting the recording from the start of gameplay in case a lag spike happened at the start of the game unrelated to the spawn itself. The frame I selected for both tests contained 6 spawning calls as each spawn happens at the same time.
 
 <img width="676" height="574" alt="EnemySpawner_Setup" src="https://github.com/user-attachments/assets/841fcdb2-69ee-43b5-bf53-39d0130d2693" />
 
@@ -49,13 +55,13 @@ The capture of the largest spikes in frame times revealed EditorLoop and RenderL
 
 Object pooling was used in place of continually spawning and removing enemies. There is a pool that will create the number of Goombas and Koopas that are needed, turn them off when done, and reuse them for future use in the level.
 
-The Factory Design Pattern is being used in place of object instantiation in the spawner to an EnemyFactory interface. EnemyFactory takes care of creating the enemy objects. The specific factories are GoombaFactory and KoopaFactory.
+The Factory Design Pattern is being used in place of object instantiation in the spawner to an EnemyFactory abstract class. EnemyFactory takes care of creating the enemy objects. The specific factories are GoombaFactory and KoopaFactory.
 
 ## Do your pattern implementations improve performance? Why or why not?
 
 Both spawning calls in the chosen frames took 0.43 ms in six spawning cases and had a GC Allocation of 40 B. Analyzing the Profiler, there seemed to be no difference between the time spent on spawning either when the pooling approach alone was used or the combination of pooling and factories was employed.
 
-The benefit of applying the factory design pattern lies in the separation of the enemy creation process from that of the spawner, thus making the game maintenance and extensibility much better for creating different types of enemies. The spawner was requesting an enemy instance through the common interface but the specific factory created the particular enemy.
+The benefit of applying the factory design pattern lies in the separation of the enemy creation process from that of the spawner, thus making the game maintenance and extensibility much better for creating different types of enemies. The spawner was requesting an enemy instance through the abstract class but the specific factory created the particular enemy.
 
 Pooling was applied in both versions. This analysis allowed understanding the influence of factories rather than pooling by itself or the destruction/creation of objects. The timing of further waves of spawning should be analyzed.
 
