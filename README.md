@@ -14,7 +14,7 @@ The gameplay loops follows how the typical old school Mario games do. The player
 
 ## What I created:
 
-For the Lab Assignment, I built off my existing Goomba Spawning and Pooling System to support Koopas. Afterwards, I added the factory design pattern to the enemy spawning system and I placed six enemy spawners around my World 1-1 level. Each spawner randomly chooses either a Goomba or a Koopa using UnityEngine.Random.Range. GoombaFactory and KoopaFactory both inherit from EnemyFactory and supply the type of enemy they are. Goombas and Koopas each have separate pools. When an enemies lifetime ends, they are disabled and kept to be reused and the state they were previously in is reset.
+For the Lab Assignment, I built off my existing Goomba Spawning and Pooling System to support Koopas. Afterwards, I added the factory design pattern to the enemy spawning system and I placed six enemy spawners around my World 1-1 level. Each spawner randomly chooses either a Goomba or a Koopa using UnityEngine.Random.Range. GoombaFactory and KoopaFactory both inherit from EnemyFactory and supply the type of enemy they are. Goombas and Koopas each have separate pools. When an enemy's lifetime ends, they are disabled and kept to be reused and the state they were previously in is reset.
 
 ## How I Tested the Spawn System:
 
